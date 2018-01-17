@@ -6,8 +6,10 @@ Created on Mon Jan 15 16:37:20 2018
 @author: earthz
 """
 
+import requests
 import os
 from flask import Flask, request, redirect, url_for, render_template, send_from_directory
+from flask_uploads import UploadSet, configure_uploads, IMAGES
 from werkzeug.utils import secure_filename
 
 UPLOAD_FOLDER = 'img'
