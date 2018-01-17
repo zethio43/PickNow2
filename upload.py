@@ -13,7 +13,7 @@ from flask_uploads import UploadSet, configure_uploads, IMAGES
 from werkzeug.utils import secure_filename
 
 UPLOAD_FOLDER = 'img'
-CUTBG_FOLDER ='cbg'
+# CUTBG_FOLDER ='cbg'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
 
 app = Flask(__name__)
@@ -43,16 +43,10 @@ def upload_file():
 
 @app.route('/upload/<filename>')
 def send_image(filename):
-        # if request.method == 'POST':
-        # file = request.files['file']
-        # if file and allowed_file(file.filename):
-        #     filename = secure_filename(file.filename)
-        #     print(filename, file=sys.stderr)
-        #     file.save(os.path.join(app.config['CUTBG_FOLDER'], filename))
     return send_from_directory("UPLOAD_FOLDER",filename)
 
 # @app.route('')
 
 if __name__ == '__main__':
     app.run(debug=True)
-    # app.run(port='5000')
+    app.run(port='5000')
